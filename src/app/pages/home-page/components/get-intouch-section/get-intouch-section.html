@@ -1,0 +1,136 @@
+<section
+  style="background-image: url('assets/get_in_touch.svg'); background-size: cover; background-position: center;"
+  class="relative bg-[#f6fbf4] min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-14 md:py-20 overflow-hidden font-sans"
+>
+
+  <div class="relative max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20">
+
+    <!-- LEFT CONTENT -->
+    <div class="flex flex-col justify-center space-y-6 md:space-y-8">
+
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1f1f1f] leading-tight text-center lg:text-left">
+        Get In Touch
+      </h2>
+
+      <p class="text-gray-600 max-w-md text-base sm:text-lg leading-relaxed text-center lg:text-left mx-auto lg:mx-0">
+        Fill the form below and one of our team members will get back to you within 24 business hours to schedule a project discovery call.
+      </p>
+
+      <!-- Contact Info -->
+      <div class="space-y-6 text-gray-700 text-base sm:text-lg max-w-md mx-auto lg:mx-0">
+
+        <div class="flex items-start gap-4">
+          <img src="assets/map-pin.svg" alt="Location" class="w-6 h-6 mt-1" />
+          <span>General Abebe Damtew St, Stadium, Addis Ababa</span>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <img src="assets/phone.svg" alt="Phone" class="w-6 h-6 mt-1" />
+          <span>0976455555 / 0116686343 / 6993</span>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <img src="assets/mail.svg" alt="Email" class="w-6 h-6 mt-1" />
+          <span class="break-all">alet.technology@gmail.com</span>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <img src="assets/clock.svg" alt="Hours" class="w-6 h-6 mt-1" />
+          <span>Mon–Fri: 8:30–5:00 | Sat: 8:30–12:30</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="w-full flex justify-center">
+      <form
+        class="w-full max-w-[600px] bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-6 sm:p-8 flex flex-col space-y-5"
+        novalidate
+        (submit)="sendEmail($event)"
+      >
+
+        <h3 class="text-xl sm:text-2xl font-bold text-gray-800 text-center mb-2 sm:mb-4">
+          Send Me a Message
+        </h3>
+
+        <!-- Name -->
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          class="w-full rounded-xl border border-gray-300 bg-white px-5 py-3 sm:px-6 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#4ade80] shadow-sm transition"
+          required
+        />
+
+        <!-- Phone -->
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Your Phone Number"
+          class="w-full rounded-xl border border-gray-300 bg-white px-5 py-3 sm:px-6 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#4ade80] shadow-sm transition"
+          required
+        />
+
+        <!-- Email -->
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          class="w-full rounded-xl border border-gray-300 bg-white px-5 py-3 sm:px-6 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#4ade80] shadow-sm transition"
+          required
+        />
+
+        <!-- Message -->
+        <textarea
+          name="message"
+          rows="4"
+          placeholder="Write Your Message"
+          class="w-full rounded-xl border border-gray-300 bg-white px-5 py-3 sm:px-6 sm:py-4 text-sm sm:text-base resize-none focus:outline-none focus:ring-2 focus:ring-[#4ade80] shadow-sm transition"
+          required
+        ></textarea>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          [disabled]="isSending"
+          class="w-full bg-gradient-to-r from-[#22c55e] to-[#16a34a]
+                 text-white font-semibold py-4 sm:py-5 rounded-xl
+                 shadow-lg shadow-[#22c55e]/40
+                 hover:shadow-[#22c55e]/70 hover:scale-[1.02]
+                 active:scale-[0.98]
+                 transition-all duration-300
+                 flex items-center justify-center"
+        >
+          <span *ngIf="!isSending">Get in Touch</span>
+
+          <span *ngIf="isSending" class="flex items-center gap-2">
+            <svg
+              class="animate-spin h-5 w-5 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+              ></circle>
+              <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+              ></path>
+            </svg>
+            Sending...
+          </span>
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+</section>

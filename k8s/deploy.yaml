@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alet-website
+  namespace: cp
+  labels:
+    app: alet-website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alet-website
+  template:
+    metadata:
+      name: alet-website
+      labels:
+        app: alet-website
+    spec:
+      containers:
+        - name: alet-website
+          image: 172.17.91.104:5000/alet-website:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: alet-website
+  namespace: cp
+spec:
+  selector:
+    app: alet-website
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: NodePort

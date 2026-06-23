@@ -1,0 +1,204 @@
+<div class="relative bg-black overflow-hidden">
+  <!-- Background image -->
+  <div
+    class="absolute inset-0 bg-cover bg-center z-0"
+    style="background-image: url('assets/bg_service.svg')"
+  ></div>
+
+  <!-- Header spotlight -->
+  <div
+    class="absolute top-0 left-0 w-full h-[420px] md:h-[520px] z-10 pointer-events-none"
+    style="
+      background: radial-gradient(
+        ellipse at 85% 15%,
+        rgba(5, 5, 5, 0.18) 0%,
+        rgba(0, 0, 0, 0.45) 50%,
+        rgba(0, 0, 0, 0.9) 35%
+      );
+    "
+  ></div>
+
+  <!-- TOP SECTION -->
+  <section class="relative z-20 px-4 sm:px-6 md:px-12 lg:px-20 pt-20 md:pt-32 text-white">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
+
+      <!-- LEFT -->
+      <div class="md:col-span-4 text-center md:text-left">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold">
+          Services
+        </h1>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="md:col-span-8 md:ml-28 text-center md:text-left">
+        <div class="mb-10 md:mb-12 md:ml-72">
+          <h2 class="text-lg sm:text-2xl md:text-[30px] font-semibold mb-3 text-[#b7c6b7]">
+            What We Offer
+          </h2>
+          <p class="text-sm sm:text-lg md:text-[20px] font-semibold text-[#b7c6b7] leading-relaxed">
+            ALET Technologies delivers enterprise-grade IT and telecom services.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTENT SECTION -->
+  <section class="relative z-20 px-4 sm:px-6 md:px-12 lg:px-20 pb-24 md:pb-32 text-white">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start">
+
+      <!-- LEFT BUTTONS -->
+      <div class="md:col-span-4 w-full md:max-w-[280px] space-y-3 md:space-y-4">
+
+        <!-- BUTTON TEMPLATE -->
+        <button (click)="activeService = 'web'"
+          class="w-full flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base rounded-xl border border-transparent transition duration-300"
+          [ngClass]="activeService === 'web'
+            ? 'border-lime-400 bg-[#0b2a15] shadow-[0_0_15px_#22c55e]'
+            : 'hover:border-lime-400'">
+          <img src="assets/Globe.svg" class="w-5 h-5 sm:w-6 sm:h-6" />
+          Web Development
+        </button>
+
+        <button (click)="activeService = 'software'"
+          class="w-full flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base rounded-xl border border-transparent transition duration-300"
+          [ngClass]="activeService === 'software'
+            ? 'border-lime-400 bg-[#0b2a15] shadow-[0_0_15px_#22c55e]'
+            : 'hover:border-lime-400'">
+          <img src="assets/Desktop.svg" class="w-5 h-5 sm:w-6 sm:h-6" />
+          Software Development
+        </button>
+
+        <button (click)="activeService = 'uiux'"
+          class="w-full flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base rounded-xl border border-transparent transition duration-300"
+          [ngClass]="activeService === 'uiux'
+            ? 'border-lime-400 bg-[#0b2a15] shadow-[0_0_15px_#22c55e]'
+            : 'hover:border-lime-400'">
+          <img src="assets/PaintBrush.svg" class="w-5 h-5 sm:w-6 sm:h-6" />
+          UI/UX Design
+        </button>
+
+        <button (click)="activeService = 'saas'"
+          class="w-full flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base rounded-xl border border-transparent transition duration-300"
+          [ngClass]="activeService === 'saas'
+            ? 'border-lime-400 bg-[#0b2a15] shadow-[0_0_15px_#22c55e]'
+            : 'hover:border-lime-400'">
+          <img src="assets/AppWindow.svg" class="w-5 h-5 sm:w-6 sm:h-6" />
+          SaaS Development
+        </button>
+
+        <button (click)="activeService = 'vaas'"
+          class="w-full flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base rounded-xl border border-transparent transition duration-300"
+          [ngClass]="activeService === 'vaas'
+            ? 'border-lime-400 bg-[#0b2a15] shadow-[0_0_15px_#22c55e]'
+            : 'hover:border-lime-400'">
+          <img src="assets/Cloud.svg" class="w-5 h-5 sm:w-6 sm:h-6" />
+          One VAAS Service
+        </button>
+
+        <button (click)="activeService = 'sms'"
+          class="w-full flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base rounded-xl border border-transparent transition duration-300"
+          [ngClass]="activeService === 'sms'
+            ? 'border-lime-400 bg-[#0b2a15] shadow-[0_0_15px_#22c55e]'
+            : 'hover:border-lime-400'">
+          <img src="assets/Chat.svg" class="w-5 h-5 sm:w-6 sm:h-6" />
+          Bulk SMS & API Service
+        </button>
+
+      </div>
+
+      <!-- RIGHT CONTENT -->
+      <div class="md:col-span-8">
+        <div class="rounded-2xl border border-lime-400 bg-[#0b2a15]/80 p-6 sm:p-8 md:p-10 shadow-[0_0_30px_#22c55e33]">
+
+          <!-- WEB -->
+          <div *ngIf="activeService === 'web'" class="space-y-4 text-sm sm:text-base md:text-lg leading-relaxed">
+            <p>
+              Our Web Development team creates high-quality, responsive websites and web applications tailored to your business needs.
+            </p>
+            <ul class="list-disc list-inside space-y-2">
+              <li>Responsive, mobile-friendly web applications</li>
+              <li>High-performance and secure websites</li>
+              <li>Enterprise portals and e-commerce platforms</li>
+              <li>Custom web solutions</li>
+              <li>SEO-friendly architecture</li>
+            </ul>
+          </div>
+
+          <!-- SOFTWARE -->
+          <div *ngIf="activeService === 'software'" class="space-y-4 text-sm sm:text-base md:text-lg leading-relaxed">
+            <p>
+              We develop enterprise-grade software solutions designed to streamline operations.
+            </p>
+            <ul class="list-disc list-inside space-y-2">
+              <li>Custom enterprise software</li>
+              <li>Automation tools</li>
+              <li>System integrations</li>
+              <li>Secure applications</li>
+              <li>Business efficiency optimization</li>
+            </ul>
+          </div>
+
+          <!-- UIUX -->
+          <div *ngIf="activeService === 'uiux'" class="space-y-4 text-sm sm:text-base md:text-lg leading-relaxed">
+            <p>
+              We create intuitive and visually stunning user experiences.
+            </p>
+            <ul class="list-disc list-inside space-y-2">
+              <li>User-centered design</li>
+              <li>Responsive layouts</li>
+              <li>Accessibility focus</li>
+              <li>Brand consistency</li>
+              <li>Improved engagement</li>
+            </ul>
+          </div>
+
+          <!-- SAAS -->
+          <div *ngIf="activeService === 'saas'" class="space-y-4 text-sm sm:text-base md:text-lg leading-relaxed">
+            <p>
+              Scalable SaaS solutions from MVP to full platforms.
+            </p>
+            <ul class="list-disc list-inside space-y-2">
+              <li>MVP development</li>
+              <li>Subscription systems</li>
+              <li>Cloud hosting</li>
+              <li>Secure architecture</li>
+              <li>Ongoing support</li>
+            </ul>
+          </div>
+
+          <!-- VAAS -->
+          <div *ngIf="activeService === 'vaas'" class="space-y-4 text-sm sm:text-base md:text-lg leading-relaxed">
+            <p>
+              Cloud-based automation and API services.
+            </p>
+            <ul class="list-disc list-inside space-y-2">
+              <li>API integrations</li>
+              <li>Workflow automation</li>
+              <li>Infrastructure optimization</li>
+              <li>Scalable cloud systems</li>
+              <li>Modern API platforms</li>
+            </ul>
+          </div>
+
+          <!-- SMS -->
+          <div *ngIf="activeService === 'sms'" class="space-y-4 text-sm sm:text-base md:text-lg leading-relaxed">
+            <p>
+              Fast and reliable Bulk SMS service with API integration.
+            </p>
+            <ul class="list-disc list-inside space-y-2">
+              <li>High-volume SMS delivery</li>
+              <li>Trackable messaging</li>
+              <li>Secure API integration</li>
+              <li>Global reach</li>
+              <li>Scheduled automation</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>

@@ -1,0 +1,42 @@
+<div
+  class="relative w-full bg-black bg-center bg-cover bg-no-repeat
+         min-h-[220px] sm:min-h-[300px] md:min-h-[400px]"
+  style="background-image: url('assets/bg_about_us.svg');"
+>
+
+  <!-- Dark overlay -->
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-6 z-10">
+
+    <!-- Navigation -->
+    <app-nav></app-nav>
+
+    <!-- Main Content -->
+    <main
+      class="mt-6 sm:mt-8 md:mt-12
+             grid grid-cols-1 md:grid-cols-12
+             items-center text-white"
+    >
+
+      <!-- Logo -->
+      <div class="md:col-span-3 flex justify-center md:justify-start">
+        <ng-container *ngIf="logoSrc; else textLogo">
+          <img
+            [src]="logoSrc"
+            [alt]="logoAlt"
+            class="w-28 sm:w-36 md:w-44 h-auto"
+          />
+        </ng-container>
+
+        <ng-template #textLogo>
+          <div class="text-lg sm:text-xl md:text-2xl font-semibold">
+            {{ logoText }}
+          </div>
+        </ng-template>
+      </div>
+
+    </main>
+
+  </div>
+</div>

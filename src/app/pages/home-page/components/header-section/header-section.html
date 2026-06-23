@@ -1,0 +1,118 @@
+<div class="relative min-h-screen bg-black" >
+
+  <!-- Background image -->
+  <div
+    class="absolute inset-0 bg-cover bg-center z-0"
+    style="background-image: url('assets/bg_image.svg');"
+  ></div>
+
+  <!-- Header spotlight -->
+  <div
+    class="absolute top-0 left-0 w-full h-32 z-10 pointer-events-none"
+    style="background: radial-gradient(circle at 100px 50%, rgba(0,0,0,0) 20%, rgba(0,0,0,1) 100%);"
+  ></div>
+
+  <!-- Header -->
+ <app-nav></app-nav>
+
+  <!-- Main Content -->
+  <main
+    class="max-w-7xl mx-auto mt-20 px-4 md:px-8
+           grid grid-cols-1 md:grid-cols-12
+           gap-8 items-center text-white relative z-20"
+  >
+
+    <!-- Right text block -->
+    <section
+      class="col-start-1 md:col-start-8 col-span-1 md:col-span-5
+             flex flex-col items-center md:items-end
+             space-y-10 text-gray-300 max-w-md
+             text-center md:text-right mt-10"
+    >
+
+
+        <p class="text-[#b7c6b7] text-base sm:text-lg leading-relaxed text-center md:text-left">
+  <strong class="text-white">ALET</strong> Technologies delivers enterprise-grade IT and telecom services, including bulk SMS
+  solutions, call center management, and SaaS solutions.
+</p>
+    </section>
+
+    <!-- Headline + CTA -->
+    <section
+      class="col-span-1 md:col-span-7
+             space-y-6 mt-16
+             text-center md:text-left"
+    >
+      <h2
+        class="text-gray-400 font-bold
+               text-3xl md:text-5xl
+               whitespace-normal md:whitespace-nowrap"
+      >
+        Powering Ethiopia's Businesses with
+      </h2>
+
+      <h3
+        class="text-white font-bold leading-tight
+               text-3xl md:text-4xl
+               whitespace-normal md:whitespace-nowrap"
+      >
+        Smart Telecom & IT Solutions
+      </h3>
+
+ <button
+  class="bg-green-500 px-8 py-3 mt-4
+         text-lg font-semibold rounded-md
+         shadow-lg transition
+         animate-green-pulse
+         hover:scale-105 hover:brightness-110 hover:shadow-neon"   (click)="scrollToSection('contact')"
+>
+  Get In Touch
+</button>
+
+
+    </section>
+
+    <!-- Image -->
+   <section
+  class="col-span-1 md:col-span-5
+         flex flex-col items-center md:items-end
+         space-y-10 max-w-md
+         text-right mt-16"
+>
+  <img
+    src="assets/icon.svg"
+    alt="Single Image"
+    class="h-40 md:h-48 w-auto object-contain animate-slow-spin"
+  />
+</section>
+
+
+  </main>
+
+  <!-- Footer -->
+<footer
+  class="max-w-7xl mx-auto mt-24 px-4 md:px-8
+         overflow-hidden opacity-60 relative z-20"
+>
+  <div class="flex w-max mb-12 animate-marquee space-x-10 items-center">
+    <img src="assets/bussiness-excel.svg" class="max-h-8 md:max-h-10" />
+    <img src="assets/africa-insurance.svg" class="max-h-8 md:max-h-10" />
+    <img src="assets/addis-learning-center.svg" class="max-h-8 md:max-h-10" />
+    <img src="assets/etemari.svg" class="max-h-8 md:max-h-10" />
+    <img src="assets/flintstone.svg" class="max-h-8 md:max-h-10" />
+    <img src="assets/tele.svg" class="max-h-8 md:max-h-10" />
+    <img src="assets/telebirr.svg" class="max-h-8 md:max-h-10" />
+
+    <!-- duplicate for seamless loop -->
+  <img src="assets/bussiness-excel.svg" class="max-h-8 md:max-h-10" />
+    <img src="assets/africa-insurance.svg" class="max-h-8 md:max-h-10" />
+    <img src="assets/addis-learning-center.svg" class="max-h-8 md:max-h-10" />
+    <img src="assets/etemari.svg" class="max-h-8 md:max-h-10" />
+    <img src="assets/flintstone.svg" class="max-h-8 md:max-h-10" />
+    <img src="assets/tele.svg" class="max-h-8 md:max-h-10" />
+    <img src="assets/telebirr.svg" class="max-h-8 md:max-h-10" />
+
+  </div>
+</footer>
+
+</div>
