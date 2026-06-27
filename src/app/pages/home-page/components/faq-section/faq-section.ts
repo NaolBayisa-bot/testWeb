@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
+  standalone: true,
   selector: 'app-faq-section',
   imports: [CommonModule, FormsModule],
   templateUrl: './faq-section.html',

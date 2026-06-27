@@ -1,208 +1,178 @@
-<div class="relative min-h-screen bg-black text-white">
+<div class="relative min-h-screen bg-black text-white bg-grid-pattern">
 
-  <!-- Background image (applies to all sections) -->
+    <!-- Modern gradient overlays -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/95 via-black/80 to-black/95 z-10"></div>
+
+    <!-- Decorative glow effects -->
+  <div class="absolute top-1/4 left-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[150px] z-0"></div>
+  <div class="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-green-500/5 rounded-full blur-[100px] z-0"></div>
+
+
+  <!-- Background image -->
   <div
     class="absolute inset-0 bg-cover bg-center z-0"
     style="background-image: url('assets/bg_why.svg');"
-  ></div>
-
-  <!-- Header spotlight -->
-  <div
-    class="absolute top-0 left-0 w-full h-32 z-10 pointer-events-none"
-    style="background: radial-gradient(circle at 100px 50%, rgba(0,0,0,0) 20%, rgba(0,0,0,1) 100%);"
   ></div>
 
   <!-- Main Content -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-16 relative z-20">
 
     <!-- WHY US / WHY WORK WITH US -->
-    <section class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
+    <section class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-20 animate-fade-in-up">
 
       <!-- WHY US (LEFT) -->
       <div class="md:col-span-6 flex flex-col space-y-8">
-        <h2 class="text-3xl sm:text-4xl font-semibold">Why Us</h2>
+        <!-- Section pill badge -->
+        <div class="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm font-medium text-emerald-300 w-fit">
+          Why Us
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold">
+          Why
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-300">Us</span>
+        </h2>
+        <p class="text-gray-400 max-w-md text-sm sm:text-base leading-relaxed">
+          We leverage cutting-edge technology and deep industry expertise to deliver solutions that drive real business growth.
+        </p>
 
-        <!-- Tech Icons Grid -->
-<div class="grid grid-cols-3 mr-22 gap-6 sm:gap-8 md:gap-10 place-items-center opacity-80 mt-12">
-  <div class="w-20 h-20 flex items-center justify-center">
-    <img src="/assets/laravel_symbol.svg" alt="Laravel" class="w-16 h-16 object-contain">
-  </div>
-  <div class="w-20 h-20 flex items-center justify-center">
-    <img src="/assets/angular.svg" alt="Angular" class="w-16 h-16 object-contain">
-  </div>
-  <div class="w-20 h-20 flex items-center justify-center">
-    <img src="/assets/Vector.svg" alt="Design" class="w-16 h-16 object-contain">
-  </div>
-  <div class="w-20 h-20 flex items-center justify-center">
-    <img src="/assets/g14.svg" alt="Cloud" class="w-16 h-16 object-contain">
-  </div>
-  <div class="w-20 h-20 flex items-center justify-center">
-    <img src="/assets/Frame.svg" alt="Link" class="w-16 h-16 object-contain">
-  </div>
-  <div class="w-20 h-20 flex items-center justify-center">
-    <img src="/assets/g48.svg" alt="Other" class="w-16 h-16 object-contain">
-  </div>
-</div>
-
-
-
-
-
+        <!-- Tech Icons Grid - Glass card style -->
+        <div class="grid grid-cols-3 gap-6 sm:gap-8 md:gap-10 place-items-center mt-4 p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
+          <div class="w-20 h-20 flex items-center justify-center rounded-xl bg-white/5 p-4 hover:bg-emerald-500/10 hover:scale-110 transition-all duration-300">
+            <img src="/assets/laravel_symbol.svg" alt="Laravel" class="w-full h-full object-contain">
+          </div>
+          <div class="w-20 h-20 flex items-center justify-center rounded-xl bg-white/5 p-4 hover:bg-emerald-500/10 hover:scale-110 transition-all duration-300">
+            <img src="/assets/angular.svg" alt="Angular" class="w-full h-full object-contain">
+          </div>
+          <div class="w-20 h-20 flex items-center justify-center rounded-xl bg-white/5 p-4 hover:bg-emerald-500/10 hover:scale-110 transition-all duration-300">
+            <img src="/assets/Vector.svg" alt="Design" class="w-full h-full object-contain">
+          </div>
+          <div class="w-20 h-20 flex items-center justify-center rounded-xl bg-white/5 p-4 hover:bg-emerald-500/10 hover:scale-110 transition-all duration-300">
+            <img src="/assets/g14.svg" alt="Cloud" class="w-full h-full object-contain">
+          </div>
+          <div class="w-20 h-20 flex items-center justify-center rounded-xl bg-white/5 p-4 hover:bg-emerald-500/10 hover:scale-110 transition-all duration-300">
+            <img src="/assets/Frame.svg" alt="Link" class="w-full h-full object-contain">
+          </div>
+          <div class="w-20 h-20 flex items-center justify-center rounded-xl bg-white/5 p-4 hover:bg-emerald-500/10 hover:scale-110 transition-all duration-300">
+            <img src="/assets/g48.svg" alt="Other" class="w-full h-full object-contain">
+          </div>
+        </div>
       </div>
-
       <!-- WHY WORK WITH US (RIGHT) -->
-      <div class="md:col-span-6 space-y-4">
-        <h2 class="text-3xl sm:text-4xl font-semibold">Why Work With Us</h2>
+      <div class="md:col-span-6 space-y-6">
+        <div class="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm font-medium text-emerald-300 w-fit">
+          Why Work With Us
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold">
+          What We
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-300">Offer</span>
+        </h2>
 
-        <div class="space-y-4 text-gray-300 mt-12">
-  <div class="flex items-start gap-3 sm:gap-4">
-    <img src="/assets/tele_icon.svg" alt="Icon" class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-1">
-    <p>
-      <span class="text-white font-medium">Seamless EthioTelecom Integration:</span> Exclusive VAS & messaging solutions.
-    </p>
-  </div>
-
-  <div class="flex items-start gap-3 sm:gap-4">
-    <img src="/assets/message-circle.svg" alt="Icon" class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-1">
-    <p>
-      <span class="text-white font-medium">24/7 Technical Support:</span> Reliable assistance for all our clients.
-    </p>
-  </div>
-
-  <div class="flex items-start gap-3 sm:gap-4">
-    <img src="/assets/folder.svg" alt="Icon" class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-1">
-    <p>
-      <span class="text-white font-medium">Scalable & Custom Solutions:</span> Tailored IT & telecom services.
-    </p>
-  </div>
-
-  <div class="flex items-start gap-3 sm:gap-4">
-    <img src="/assets/briefcase.svg" alt="Icon" class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-1">
-    <p>
-      <span class="text-white font-medium">340+ business clients:</span> Trusted by industry leaders.
-    </p>
-  </div>
-</div>
-
+        <div class="space-y-4 mt-6">
+          <div class="flex items-start gap-4 p-5 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-emerald-500/20 hover:bg-white/[0.07] transition-all duration-300">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+              <img src="/assets/tele_icon.svg" alt="Icon" class="w-6 h-6">
+            </div>
+            <div>
+              <p class="text-white font-semibold mb-1">Seamless EthioTelecom Integration</p>
+              <p class="text-gray-400 text-sm">Exclusive VAS & messaging solutions.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-5 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-emerald-500/20 hover:bg-white/[0.07] transition-all duration-300">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+              <img src="/assets/message-circle.svg" alt="Icon" class="w-6 h-6">
+            </div>
+            <div>
+              <p class="text-white font-semibold mb-1">24/7 Technical Support</p>
+              <p class="text-gray-400 text-sm">Reliable assistance for all our clients.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-5 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-emerald-500/20 hover:bg-white/[0.07] transition-all duration-300">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+              <img src="/assets/folder.svg" alt="Icon" class="w-6 h-6">
+            </div>
+            <div>
+              <p class="text-white font-semibold mb-1">Scalable & Custom Solutions</p>
+              <p class="text-gray-400 text-sm">Tailored IT & telecom services.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-5 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-emerald-500/20 hover:bg-white/[0.07] transition-all duration-300">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+              <img src="/assets/briefcase.svg" alt="Icon" class="w-6 h-6">
+            </div>
+            <div>
+              <p class="text-white font-semibold mb-1">340+ Business Clients</p>
+              <p class="text-gray-400 text-sm">Trusted by industry leaders.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-
-
-
-
-
-
- <section class="grid grid-cols-1 md:grid-cols-12 gap-8 mt-40">
-
-      <!-- WHY US (LEFT) -->
-      <div class="md:col-span-6 flex flex-col space-y-8">
-    <h2 class="text-3xl sm:text-4xl font-semibold">Testemonials</h2>
-
+    <!-- WHAT OUR CLIENTS SAY -->
+    <section class="mt-20 animate-fade-in-up">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm font-medium text-emerald-300 mb-4">
+          Testimonials
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold">
+          What Our
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-300">Clients Say</span>
+        </h2>
+        <p class="text-gray-400 max-w-xl mx-auto mt-4 text-sm sm:text-base">
+          Hear from our trusted clients and the great impact <span class="text-white font-medium">Alet</span> has done for their businesses.
+        </p>
       </div>
 
-      <!-- WHY WORK WITH US (RIGHT) -->
-      <div class="md:col-span-6 space-y-4">
-
- <div>
-          <h3 class="text-2xl sm:text-3xl font-medium mb-2">Don’t take our word for it</h3>
-          <p class="text-gray-400 max-w-2xl">
-            Take a look at what our amazing clients have to say about us, and the great impact <span class="text-white font-medium">Alet</span> has done for their businesses.
-          </p>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <!-- STATS (LEFT) -->
+        <div class="lg:col-span-3 space-y-8">
+          <div class="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 text-center lg:text-left">
+            <div>
+              <p class="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-300">6.9m+</p>
+              <p class="text-gray-400 text-sm mt-1">Subscribers</p>
+            </div>
+            <div class="mt-8 pt-8 border-t border-white/10">
+              <p class="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-300">105+</p>
+              <p class="text-gray-400 text-sm mt-1">VAS Products</p>
+            </div>
+            <div class="mt-8 pt-8 border-t border-white/10">
+              <p class="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-300">340+</p>
+              <p class="text-gray-400 text-sm mt-1">Clients</p>
+            </div>
+          </div>
         </div>
 
-
-
+        <!-- TESTIMONIAL CARDS (RIGHT) -->
+        <div class="lg:col-span-9">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- CARD 1 -->
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-emerald-500/20 hover:bg-white/[0.07] transition-all duration-300 flex flex-col items-center text-center">
+              <div class="rounded-full bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 text-xs text-emerald-300 mb-4">Tech Industry</div>
+              <img src="/assets/dj_ash.jpg" alt="Amsale Tadesse" class="w-20 h-20 rounded-full border-2 border-emerald-500/30 mb-4 object-cover" />
+              <h4 class="text-white font-semibold mb-2">DJ Ash</h4>
+              <p class="text-sm text-gray-400 leading-relaxed">The reliability and ease of use of the platform have significantly enhanced our operations, and we highly recommend it to any business looking to optimize their subscription services.</p>
+              <p class="text-sm font-medium text-emerald-300 mt-4">Info Tech Systems</p>
+            </div>
+            <!-- CARD 2 -->
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-emerald-500/20 hover:bg-white/[0.07] transition-all duration-300 flex flex-col items-center text-center">
+              <div class="rounded-full bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 text-xs text-emerald-300 mb-4">Tech Industry</div>
+              <img src="/assets/Gumru.jpg" alt="Abel Tesfaye" class="w-20 h-20 rounded-full border-2 border-emerald-500/30 mb-4 object-cover" />
+              <h4 class="text-white font-semibold mb-2">Gumru TN</h4>
+              <p class="text-sm text-gray-400 leading-relaxed">Thank you for your invaluable Expertise and exceptional support during our etemari platform integration with the short code service Your dedication and problem-solving skills made the process smooth. We are confident in providing a seamless user experience and look forward to our continued partnership</p>
+              <p class="text-sm font-medium text-emerald-300 mt-4">EDU TECH</p>
+            </div>
+            <!-- CARD 3 -->
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-emerald-500/20 hover:bg-white/[0.07] transition-all duration-300 flex flex-col items-center text-center">
+              <div class="rounded-full bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 text-xs text-emerald-300 mb-4">Tech Industry</div>
+              <img src="/assets/kidus.jpg" alt="Selamawit Alemu" class="w-20 h-20 rounded-full border-2 border-emerald-500/30 mb-4 object-cover" />
+              <h4 class="text-white font-semibold mb-2">Kidus Dagnachew</h4>
+              <p class="text-sm text-gray-400 leading-relaxed">Overall, we have had a highly satisfactory and one-of-a-kind experience with Alet Technology One Member PLC, and this letter is intended to help you make the right choice regarding a solutions provider in the industry.</p>
+              <p class="text-sm font-medium text-emerald-300 mt-4">Kulu Group</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
-
-    <!-- TESTIMONIALS / STATS -->
-    <section class="grid grid-cols-1 md:grid-cols-12 gap-8 mt-12 ">
-
-      <!-- STATS (LEFT) -->
-      <div class="md:col-span-3 space-y-8">
-
-
-        <div>
-          <p class="text-4xl sm:text-5xl font-bold">6.9m+ </p>
-          <p class="text-gray-400 text-sm">subscribers</p>
-        </div>
-
-        <div>
-          <p class="text-4xl sm:text-5xl font-bold">105+</p>
-          <p class="text-gray-400 text-sm">VAS Products</p>
-        </div>
-
-        <div>
-          <p class="text-4xl sm:text-5xl font-bold">340+</p>
-          <p class="text-gray-400 text-sm"> Clients</p>
-        </div>
-      </div>
-
-      <!-- TESTIMONIAL CONTENT (RIGHT) -->
-   <div class="md:col-span-9 space-y-8">
-
-  <!-- CARDS -->
- <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
-  <!-- CARD 1 -->
-  <div class="bg-white text-black rounded-xl p-6 border-2 border-green-500 flex flex-col items-center">
-    <p class="text-xs text-gray-500 mb-2">Tech Industry</p>
-    <img
-      src="/assets/dj_ash.jpg"
-      alt="Amsale Tadesse"
-      class="w-20 h-20 rounded-full border-2 border-green-500 mb-4 object-cover"
-    />
-    <h4 class="text-center font-semibold mb-2">DJ Ash</h4>
-    <p class="text-sm text-gray-600 text-center leading-relaxed">
-The reliability and ease of use of
-the platform have significantly
-enhanced our operations, and we
-highly recommend it to any
-business looking to optimize their
-subscription services.
-    </p>
-    <p class="text-sm font-medium text-center mt-4">Info Tech Systems</p>
-  </div>
-
-  <!-- CARD 2 -->
-  <div class="bg-white text-black rounded-xl p-6 border-2 border-green-500 flex flex-col items-center">
-    <p class="text-xs text-gray-500 mb-2">Tech Industry</p>
-    <img
-      src="/assets/Gumru.jpg"
-      alt="Abel Tesfaye"
-      class="w-20 h-20 rounded-full border-2 border-green-500 mb-4 object-cover"
-    />
-    <h4 class="text-center font-semibold mb-2">Gumru TN</h4>
-    <p class="text-sm text-gray-600 text-center leading-relaxed">
-   Thank you for your invaluable
-Expertise and exceptional support during our etemari platform integration with the short code service Your dedication and problem-solving skills made the process smooth. We are confident in providing a seamless user experience and look forward to our continued partnership
-    </p>
-    <p class="text-sm font-medium text-center mt-4">EDU TECH</p>
-  </div>
-
-  <!-- CARD 3 -->
-  <div class="bg-white text-black rounded-xl p-6 border-2 border-green-500 flex flex-col items-center">
-      <p class="text-xs text-gray-500 mb-2">Tech Industry</p>
-    <img
-      src="/assets/kidus.jpg"
-      alt="Selamawit Alemu"
-      class="w-20 h-20 rounded-full border-2 border-green-500 mb-4 object-cover"
-    />
-    <h4 class="text-center font-semibold mb-2">Kidus Dagnachew</h4>
-    <p class="text-sm text-gray-600 text-center leading-relaxed">
-Overall, we have had a highly
-satisfactory and one-of-a-kind
-experience with Alet Technology One Member PLC, and this letter is intended to help you make the right choice regarding a solutions provider in the industry.
-    </p>
-    <p class="text-sm font-medium text-center mt-4">Kulu Group</p>
-  </div>
-
-</div>
-
-</div>
-
     </section>
 
   </main>
+  
 </div>

@@ -6,6 +6,7 @@ import { Footer } from '../../../shared/components/footer/footer';
 import { OneVasMainSection } from './components/one-vas-main-section/one-vas-main-section';
 
 @Component({
+  standalone: true,
   selector: 'app-one-vas',
   imports: [CommonModule,FormsModule,Header,Footer,OneVasMainSection],
   templateUrl: './one-vas.html',

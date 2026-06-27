@@ -5,6 +5,7 @@ import { RouterLink } from '@angular/router';
 import { Nav } from '../nav/nav/nav';
 
 @Component({
+  standalone: true,
   selector: 'app-header',
   imports: [CommonModule,FormsModule,Nav],
   templateUrl: './header.html',

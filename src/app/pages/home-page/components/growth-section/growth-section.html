@@ -1,38 +1,38 @@
 <section
-  class="relative w-full min-h-[420px] sm:min-h-[500px] lg:min-h-[600px] flex items-center"
-  style="background-image: url('assets/bg_growth.svg'); background-size: cover; background-position: center; background-size: cover;"
+  class="relative w-full min-h-[420px] sm:min-h-[500px] lg:min-h-[600px] flex items-center bg-grid-pattern"
+  style="background-image: url('assets/bg_growth.svg'); background-size: cover; background-position: center;"
 >
-
+  <!-- Gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10"></div>
+  
   <!-- Content -->
-  <div class="relative z-10 w-full px-4 sm:px-6 md:px-12 lg:px-16 py-12 sm:py-16">
-
-    <div class="flex flex-col gap-6 max-w-3xl mx-auto lg:mx-0 text-center lg:text-left">
-
+  <div class="relative z-20 w-full px-4 sm:px-6 md:px-12 lg:px-16 py-12 sm:py-16">
+    <div class="flex flex-col gap-8 max-w-3xl">
       <h1
-        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-800 leading-tight"
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight"
       >
-        Your growth never sleeps,
-        <br />
-        <span class="text-gray-500 font-semibold">
+        Your growth never sleeps,<br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-300">
           and neither do we.
         </span>
       </h1>
 
       <button
-        class="w-full sm:w-fit mx-auto lg:mx-0
-               rounded-xl bg-gradient-to-r from-green-500 to-green-600
-               px-6 sm:px-8 py-3 sm:py-4
-               text-white text-base sm:text-lg font-semibold
-               shadow-lg shadow-green-500/30
-               hover:shadow-green-600/50
-               hover:scale-[1.03]
-               active:scale-[0.97]
+        class="w-full sm:w-fit rounded-xl bg-gradient-to-r from-emerald-500 to-green-600
+               px-8 sm:px-10 py-4
+               text-white text-lg font-semibold
+               shadow-lg shadow-emerald-500/30
+               hover:shadow-emerald-500/50
+               hover:scale-105 hover:brightness-110
+               active:scale-95
                transition-all duration-300"
         (click)="scrollToSection('contact')"
       >
         Get In Touch
+        <svg class="inline-block w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
       </button>
-
     </div>
   </div>
 

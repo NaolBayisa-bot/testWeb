@@ -6,6 +6,7 @@ import { Footer } from '../../../shared/components/footer/footer';
 import { TeleBusMainSection } from './components/tele-bus-main-section/tele-bus-main-section';
 
 @Component({
+  standalone: true,
   selector: 'app-tele-bus',
   imports: [CommonModule,FormsModule,Header,Footer,TeleBusMainSection],
   templateUrl: './tele-bus.html',

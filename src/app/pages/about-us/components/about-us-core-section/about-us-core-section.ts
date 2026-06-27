@@ -11,6 +11,7 @@ interface TimelinePoint {
 }
 
 @Component({
+  standalone: true,
   selector: 'app-about-us-core-section',
   imports: [CommonModule, FormsModule],
   templateUrl: './about-us-core-section.html',

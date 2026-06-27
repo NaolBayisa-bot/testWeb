@@ -17,21 +17,26 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/alet-website",
+            "index": "src/index.html",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
-        "assets": [
-  {
-    "glob": "**/*",
-    "input": "src/assets",
-    "output": "/assets"
-  },
-  {
-    "glob": "favicon.ico",
-    "input": "src",
-    "output": "/"
-  }
-]
-,
+            "polyfills": [
+              "zone.js"
+            ],
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "public",
+                "output": "/"
+              },
+              "src/manifest.webmanifest"
+            ],
             "styles": [
               "src/styles.css"
             ]

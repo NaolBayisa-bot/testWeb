@@ -1,30 +1,33 @@
-<div class="relative bg-black text-white overflow-hidden">
+<div class="relative bg-black text-white overflow-hidden bg-grid-pattern">
 
-  <!-- Background image (applies to all sections) -->
+  <!-- Background image -->
   <div
     class="absolute inset-0 bg-cover bg-center z-0"
     style="background-image: url('assets/bg_footer.svg')"
   ></div>
 
+  <!-- Gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/80 to-black z-10"></div>
+
   <!-- Header spotlight -->
   <div
-    class="absolute top-0 left-0 w-full h-22 z-10 pointer-events-none"
-    style="background: radial-gradient(circle at 100px 50%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1) 100%);"
+    class="absolute top-0 left-0 w-full h-64 z-10 pointer-events-none"
+    style="background: radial-gradient(circle at 100px 50%, rgba(0,0,0,0) 20%, rgba(0,0,0,1) 100%);"
   ></div>
 
   <!-- Main Content -->
-  <main class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-16">
+  <main class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-12 md:py-14">
 
     <!-- Footer Content -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-16 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 items-start">
 
       <!-- Map Card -->
       <div class="w-full">
-        <div class="relative rounded-2xl overflow-hidden border-2" style="border-color: #6cff3e">
+        <div class="relative rounded-2xl overflow-hidden border-2 border-emerald-500 shadow-2xl shadow-emerald-500/20">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d886.2018122454385!2d38.75438735652364!3d9.014027090470362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b859863592d57%3A0xe38ad549ea12b73a!2sAn%20business%20centre!5e1!3m2!1sen!2set!4v1769233128769!5m2!1sen!2set"
             width="100%"
-            height="340"
+            height="260"
             style="border:0; border-radius:8px;"
             allowfullscreen=""
             loading="lazy"
@@ -33,57 +36,57 @@
 
           <!-- Glow -->
           <div
-            class="absolute inset-0 ring-2 ring-[#6CFF3E]/40 rounded-2xl pointer-events-none"
+            class="absolute inset-0 ring-2 ring-emerald-500/40 rounded-2xl pointer-events-none"
           ></div>
         </div>
       </div>
 
       <!-- Footer Links -->
-      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-12 text-sm">
+      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-sm">
 
         <!-- Service -->
         <div>
-          <h3 class="text-white font-semibold text-base mb-6">Service</h3>
-          <ul class="space-y-4 text-gray-400">
-            <li><a (click)="scrollToSection('services')" class="hover:text-green-500 transition">Web Development</a></li>
-            <li><a (click)="scrollToSection('services')" class="hover:text-green-500 transition">Software Development</a></li>
-            <li><a (click)="scrollToSection('services')" class="hover:text-green-500 transition">UI/UX Design</a></li>
-            <li><a (click)="scrollToSection('services')" class="hover:text-green-500 transition">SaaS Development</a></li>
-            <li><a (click)="scrollToSection('services')" class="hover:text-green-500 transition">One VAAS Service</a></li>
-            <li><a (click)="scrollToSection('services')" class="hover:text-green-500 transition">Bulk Sms Service</a></li>
+          <h3 class="text-white font-semibold text-base mb-4">Service</h3>
+          <ul class="space-y-3 text-gray-400">
+            <li><a (click)="scrollToSection('services')" class="hover:text-emerald-400 transition cursor-pointer">Web Development</a></li>
+            <li><a (click)="scrollToSection('services')" class="hover:text-emerald-400 transition cursor-pointer">Software Development</a></li>
+            <li><a (click)="scrollToSection('services')" class="hover:text-emerald-400 transition cursor-pointer">UI/UX Design</a></li>
+            <li><a (click)="scrollToSection('services')" class="hover:text-emerald-400 transition cursor-pointer">SaaS Development</a></li>
+            <li><a (click)="scrollToSection('services')" class="hover:text-emerald-400 transition cursor-pointer">One VAAS Service</a></li>
+            <li><a (click)="scrollToSection('services')" class="hover:text-emerald-400 transition cursor-pointer">Bulk Sms Service</a></li>
           </ul>
         </div>
 
         <!-- Company -->
         <div>
-          <h3 class="text-white font-semibold text-base mb-6">Company</h3>
-          <ul class="space-y-4 text-gray-400">
-            <li><a (click)="scrollToSection('services')" class="hover:text-green-500 transition">Service</a></li>
-            <li><a (click)="scrollToSection('products')" class="hover:text-green-500 transition">Features</a></li>
-            <li><a (click)="scrollToSection('about-us')" class="hover:text-green-500 transition">Our Team</a></li>
-            <li><a (click)="scrollToSection('portfolio')" class="hover:text-green-500 transition">Portfolio</a></li>
-            <li><a (click)="scrollToSection('contact')" class="hover:text-green-500 transition">Contact Us</a></li>
+          <h3 class="text-white font-semibold text-base mb-4">Company</h3>
+          <ul class="space-y-3 text-gray-400">
+            <li><a (click)="scrollToSection('services')" class="hover:text-emerald-400 transition cursor-pointer">Service</a></li>
+            <li><a (click)="scrollToSection('products')" class="hover:text-emerald-400 transition cursor-pointer">Features</a></li>
+            <li><a (click)="scrollToSection('about-us')" class="hover:text-emerald-400 transition cursor-pointer">Our Team</a></li>
+            <li><a (click)="scrollToSection('portfolio')" class="hover:text-emerald-400 transition cursor-pointer">Portfolio</a></li>
+            <li><a (click)="scrollToSection('contact')" class="hover:text-emerald-400 transition cursor-pointer">Contact Us</a></li>
           </ul>
         </div>
 
         <!-- Follow Us -->
         <div>
-          <h3 class="text-white font-semibold text-base mb-6">Follow Us On</h3>
-          <ul class="space-y-4 text-gray-400">
-            <li><a href="https://x.com/AletTechnology" target="_blank">Twitter</a></li>
-            <li><a href="https://www.instagram.com/alet.technology" target="_blank">Facebook</a></li>
-            <li><a href="https://www.instagram.com/alet.technology" target="_blank">Instagram</a></li>
-            <li><a href="https://www.instagram.com/alet.technology" target="_blank">LinkedIn</a></li>
+          <h3 class="text-white font-semibold text-base mb-4">Follow Us On</h3>
+          <ul class="space-y-3 text-gray-400">
+            <li><a href="https://x.com/AletTechnology" target="_blank" class="hover:text-emerald-400 transition">Twitter</a></li>
+            <li><a href="https://www.instagram.com/alet.technology" target="_blank" class="hover:text-emerald-400 transition">Facebook</a></li>
+            <li><a href="https://www.instagram.com/alet.technology" target="_blank" class="hover:text-emerald-400 transition">Instagram</a></li>
+            <li><a href="https://www.instagram.com/alet.technology" target="_blank" class="hover:text-emerald-400 transition">LinkedIn</a></li>
           </ul>
         </div>
 
         <!-- Products -->
         <div>
-          <h3 class="text-white font-semibold text-base mb-6">Products</h3>
-          <ul class="space-y-4 text-gray-400">
-            <li><a routerLink="one-vas" routerLinkActive="true" class="hover:text-green-500 transition">One Vaas</a></li>
-            <li><a routerLink="sms-ethiopia" routerLinkActive="true" class="hover:text-green-500 transition">Sms Ethiopia</a></li>
-            <li><a routerLink="tele-bus" routerLinkActive="true" class="hover:text-green-500 transition">Tele Bus</a></li>
+          <h3 class="text-white font-semibold text-base mb-4">Products</h3>
+          <ul class="space-y-3 text-gray-400">
+            <li><a routerLink="one-vas" routerLinkActive="true" class="hover:text-emerald-400 transition">One Vaas</a></li>
+            <li><a routerLink="sms-ethiopia" routerLinkActive="true" class="hover:text-emerald-400 transition">Sms Ethiopia</a></li>
+            <li><a routerLink="tele-bus" routerLinkActive="true" class="hover:text-emerald-400 transition">Tele Bus</a></li>
           </ul>
         </div>
 
@@ -91,7 +94,7 @@
     </div>
 
     <!-- Copyright -->
-    <div class="mt-12 sm:mt-16 md:mt-24 text-center text-gray-500 text-sm">
+    <div class="mt-10 md:mt-14 pt-6 border-t border-white/10 text-center text-gray-500 text-sm">
       Copyright © 2026 Alet Technology PLC | All Rights Reserved.
     </div>
 

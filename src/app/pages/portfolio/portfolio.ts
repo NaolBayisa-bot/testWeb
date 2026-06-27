@@ -10,11 +10,16 @@ import { PortfolioPageGetInTouch } from './components/portfolio-page-get-in-touc
 import { GetIntouchSection } from "../home-page/components/get-intouch-section/get-intouch-section";
 
 @Component({
+  standalone: true,
   selector: 'app-portfolio',
   imports: [CommonModule, FormsModule, PortfolioPageHeader, Footer, PortfolioPageGetInTouch, PortfolioPageMainSection],
   templateUrl: './portfolio.html',
   styleUrl: './portfolio.css',
 })
 export class Portfolio {
+  activeTab: string = 'client';
 
+  onTabChange(tab: string) {
+    this.activeTab = tab;
+  }
 }

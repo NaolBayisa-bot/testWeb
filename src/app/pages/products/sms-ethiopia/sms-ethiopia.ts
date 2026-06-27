@@ -6,6 +6,7 @@ import { Footer } from '../../../shared/components/footer/footer';
 import { SmsEthiopiaMainSection } from './components/sms-ethiopia-main-section/sms-ethiopia-main-section';
 
 @Component({
+  standalone: true,
   selector: 'app-sms-ethiopia',
   imports: [CommonModule,FormsModule,Header,Footer,SmsEthiopiaMainSection],
   templateUrl: './sms-ethiopia.html',

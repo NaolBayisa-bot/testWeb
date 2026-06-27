@@ -1,57 +1,112 @@
-<header class="flex flex-col md:flex-row justify-between items-start md:items-center px-4 md:px-8 pt-6 max-w-7xl mx-auto relative z-20">
+<header
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+  [ngClass]="scrolled
+    ? 'bg-gray-900/95 backdrop-blur-md shadow-lg shadow-black/10'
+    : 'bg-transparent'"
+>
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
 
-  <!-- Top row: Logo and Desktop Nav -->
-  <div class="w-full flex justify-between items-center">
-    <!-- Logo -->
-    <div class="flex items-center">
-      <img src="assets/icon.svg" alt="ALET Technology PLC" class="h-10 md:h-12" />
-    </div>
+      <!-- Logo -->
+      <a (click)="scrollToSection('')" class="flex items-center gap-2 cursor-pointer">
+        <img src="assets/icon.svg" alt="ALET Technology PLC" class="h-8 md:h-10 transition-transform hover:scale-105" appImgFallback />
+      </a>
 
-    <!-- Desktop Nav -->
-    <nav class="hidden md:flex space-x-8 text-sm font-medium text-white">
-      <a (click)="scrollToSection('')" class="hover:text-green-500 transition cursor-pointer">Home</a>
-      <a (click)="scrollToSection('about-us')" class="hover:text-green-500 transition cursor-pointer">About</a>
-      <a (click)="scrollToSection('services')" class="hover:text-green-500 transition cursor-pointer">Services</a>
-      <a (click)="scrollToSection('products')" class="hover:text-green-500 transition cursor-pointer">Products</a>
-      <a (click)="scrollToSection('portfolio')" class="hover:text-green-500 transition">Portfolio</a>
-    </nav>
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-1">
+        <a (click)="scrollToSection('')"
+          class="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer"
+          [ngClass]="activeSection === ''
+            ? 'text-emerald-300 bg-emerald-500/10 shadow-sm'
+            : 'text-white/80 hover:text-white hover:bg-white/5'">Home</a>
+        <a (click)="scrollToSection('about-us')"
+          class="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer"
+          [ngClass]="activeSection === 'about-us'
+            ? 'text-emerald-300 bg-emerald-500/10 shadow-sm'
+            : 'text-white/80 hover:text-white hover:bg-white/5'">About</a>
+        <a (click)="scrollToSection('products')"
+          class="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer"
+          [ngClass]="activeSection === 'products'
+            ? 'text-emerald-300 bg-emerald-500/10 shadow-sm'
+            : 'text-white/80 hover:text-white hover:bg-white/5'">Products</a>
+        <a (click)="scrollToSection('services')"
+          class="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer"
+          [ngClass]="activeSection === 'services'
+            ? 'text-emerald-300 bg-emerald-500/10 shadow-sm'
+            : 'text-white/80 hover:text-white hover:bg-white/5'">Services</a>
+        <a (click)="scrollToSection('why-us')"
+          class="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer"
+          [ngClass]="activeSection === 'why-us'
+            ? 'text-emerald-300 bg-emerald-500/10 shadow-sm'
+            : 'text-white/80 hover:text-white hover:bg-white/5'">Why us</a>
+                
+        <a routerLink="portfolio"
+          class="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer"
+          [ngClass]="isPortfolioRoute
+            ? 'text-emerald-300 bg-emerald-500/10 shadow-sm'
+            : 'text-white/80 hover:text-white hover:bg-white/5'">Portfolio</a>
+      </nav>
 
-    <!-- Get In Touch Button (Desktop) -->
-    <button
-      (click)="scrollToSection('contact')"
-      class="hidden md:inline-block bg-green-500 px-6 md:px-8 py-2
-             text-base md:text-lg font-semibold
-             rounded-md shadow-lg hover:shadow-neon
-             text-white transition"
-    >
-      Get In Touch
-    </button>
-
-    <!-- Mobile Hamburger -->
-    <button class="md:hidden flex items-center" (click)="toggleMobileMenu()">
-      <svg *ngIf="!mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-      <svg *ngIf="mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div *ngIf="mobileMenuOpen" class="w-full bg-gray-900 text-white md:hidden shadow-lg mt-4">
-    <nav class="flex flex-col space-y-4 px-4 py-6 text-base font-medium">
-      <a (click)="scrollToSection(''); toggleMobileMenu()" class="hover:text-green-500 transition cursor-pointer">Home</a>
-      <a (click)="scrollToSection('about-us'); toggleMobileMenu()" class="hover:text-green-500 transition cursor-pointer">About</a>
-      <a (click)="scrollToSection('services'); toggleMobileMenu()" class="hover:text-green-500 transition cursor-pointer">Services</a>
-      <a (click)="scrollToSection('products'); toggleMobileMenu()" class="hover:text-green-500 transition cursor-pointer">Products</a>
-      <a (click)="scrollToSection('portfolio'); toggleMobileMenu()" class="hover:text-green-500 transition cursor-pointer">Portfolio</a>
+      <!-- Desktop CTA -->
       <button
-        (click)="scrollToSection('contact'); toggleMobileMenu()"
-        class="bg-green-500 px-6 py-2 rounded-md text-white font-semibold shadow-lg hover:shadow-neon transition mt-2"
+        (click)="scrollToSection('contact')"
+        class="hidden md:inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-green-600
+               px-6 py-2.5 text-sm font-semibold text-white rounded-xl
+               shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40
+               hover:scale-105 active:scale-95 transition-all duration-300"
       >
         Get In Touch
       </button>
+
+      <!-- Mobile Hamburger -->
+      <button
+        class="md:hidden flex items-center justify-center w-10 h-10 rounded-xl
+               bg-white/10 hover:bg-white/20 transition-all duration-200"
+        (click)="toggleMobileMenu()"
+        aria-label="Toggle menu"
+      >
+        <svg *ngIf="!mobileMenuOpen" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg *ngIf="mobileMenuOpen" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="mobileMenuOpen"
+    class="md:hidden border-t border-white/10 bg-transparent animate-slide-down">
+    <nav class="max-w-7xl mx-auto px-4 py-4 space-y-1">
+      <a (click)="scrollToSection(''); toggleMobileMenu()"
+        class="block px-4 py-3 text-sm font-medium rounded-xl transition-all cursor-pointer"
+        [ngClass]="activeSection === ''
+          ? 'text-emerald-300 bg-emerald-500/10'
+          : 'text-white/80 hover:text-white hover:bg-white/5'">Home</a>
+      <a (click)="scrollToSection('about-us'); toggleMobileMenu()"
+        class="block px-4 py-3 text-sm font-medium rounded-xl transition-all cursor-pointer"
+        [ngClass]="activeSection === 'about-us'
+          ? 'text-emerald-300 bg-emerald-500/10'
+          : 'text-white/80 hover:text-white hover:bg-white/5'">About</a>
+      <a (click)="scrollToSection('products'); toggleMobileMenu()"
+        class="block px-4 py-3 text-sm font-medium rounded-xl transition-all cursor-pointer"
+        [ngClass]="activeSection === 'products'"
+          ? 'text-emerald-300 bg-emerald-500/10'
+          : 'text-white/80 hover:text-white hover:bg-white/5'">Products</a>
+      <a (click)="scrollToSection('services'); toggleMobileMenu()"
+        class="block px-4 py-3 text-sm font-medium rounded-xl transition-all cursor-pointer"
+        [ngClass]="activeSection === 'services'"
+          ? 'text-emerald-300 bg-emerald-500/10'
+          : 'text-white/80 hover:text-white hover:bg-white/5'">Services</a>
+      <div class="pt-2">
+        <button (click)="scrollToSection('contact'); toggleMobileMenu()"
+          class="w-full bg-gradient-to-r from-emerald-500 to-green-600 px-6 py-3 rounded-xl
+                 text-white font-semibold shadow-lg shadow-emerald-500/25
+                 hover:shadow-emerald-500/40 transition-all duration-300">
+          Get In Touch
+        </button>
+      </div>
     </nav>
   </div>
 </header>

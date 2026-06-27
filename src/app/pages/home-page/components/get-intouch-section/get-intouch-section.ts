@@ -2,8 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import emailjs from '@emailjs/browser';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
+  standalone: true,
   selector: 'app-get-intouch-section',
   imports: [CommonModule,FormsModule],
   templateUrl: './get-intouch-section.html',
@@ -17,10 +19,10 @@ export class GetIntouchSection {
     this.isSending = true;
 
     emailjs.sendForm(
-      'service_ldgd843', // Your EmailJS Service ID
-      'template_f3qq2gc', // Your EmailJS Template ID
+      environment.emailjsServiceId,
+      environment.emailjsTemplateId,
       form,
-      '4nco2yhrkQwXQ0vg0' // Your EmailJS Public Key
+      environment.emailjsPublicKey
     ).then(
       () => {
         this.isSending = false;

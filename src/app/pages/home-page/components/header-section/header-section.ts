@@ -3,6 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { Nav } from '../../../../shared/components/nav/nav/nav';
 
 @Component({
+  standalone: true,
   selector: 'app-header-section',
   imports: [Nav],
   templateUrl: './header-section.html',
