@@ -8,10 +8,11 @@ import { Header } from '../../shared/components/header/header';
 import { AboutUsCoreSection } from "./components/about-us-core-section/about-us-core-section";
 import { HeaderSection } from "../home-page/components/header-section/header-section";
 import { AboutUsSection } from '../home-page/components/about-us-section/about-us-section';
+
 @Component({
   standalone: true,
   selector: 'app-about-us',
-  imports: [CommonModule, FormsModule, Footer, GrowthSection, Header, AboutUsCoreSection,AboutUsSection],
+  imports: [CommonModule, FormsModule, Footer, GrowthSection, Header, AboutUsCoreSection, AboutUsSection],
   templateUrl: './about-us.html',
   styleUrl: './about-us.css',
 })

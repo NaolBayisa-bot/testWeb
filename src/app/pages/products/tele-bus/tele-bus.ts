@@ -8,7 +8,7 @@ import { TeleBusMainSection } from './components/tele-bus-main-section/tele-bus-
 @Component({
   standalone: true,
   selector: 'app-tele-bus',
-  imports: [CommonModule,FormsModule,Header,Footer,TeleBusMainSection],
+  imports: [CommonModule, FormsModule, Header, Footer, TeleBusMainSection],
   templateUrl: './tele-bus.html',
   styleUrl: './tele-bus.css',
 })

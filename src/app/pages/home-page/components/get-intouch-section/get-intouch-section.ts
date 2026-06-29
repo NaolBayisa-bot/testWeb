@@ -1,21 +1,47 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { environment } from '../../../../../environments/environment';
 
 @Component({
   standalone: true,
   selector: 'app-get-intouch-section',
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './get-intouch-section.html',
   styleUrl: './get-intouch-section.css',
 })
 export class GetIntouchSection {
- isSending = false;
+  isSending = false;
+  submitted = false;
+  contactForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.contactForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
+      phone: ['', [Validators.required, Validators.pattern(/^[+0-9\s\-()]{7,20}$/)]],
+      email: ['', [Validators.required, Validators.email, Validators.maxLength(254)]],
+      message: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(2000)]],
+    });
+  }
+
+  get name()    { return this.contactForm.get('name'); }
+  get phone()   { return this.contactForm.get('phone'); }
+  get email()   { return this.contactForm.get('email'); }
+  get message() { return this.contactForm.get('message'); }
+
   sendEmail(event: Event) {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
+
+    this.submitted = true;
+
+    if (this.contactForm.invalid) {
+      this.contactForm.markAllAsTouched();
+      form.reportValidity();
+      return;
+    }
+
     this.isSending = true;
 
     emailjs.sendForm(
@@ -26,11 +52,14 @@ export class GetIntouchSection {
     ).then(
       () => {
         this.isSending = false;
+        this.submitted = false;
         form.reset();
+        this.contactForm.reset();
         this.showToast('Message sent! Thanks, I will respond right away 😊', 'success');
       },
       (error) => {
         this.isSending = false;
+        this.submitted = false;
         console.error('Email sending error:', error);
         this.showToast('Failed to send message. Please try again.', 'error');
       }
@@ -56,5 +85,3 @@ export class GetIntouchSection {
     }, 4000);
   }
 }
-
-

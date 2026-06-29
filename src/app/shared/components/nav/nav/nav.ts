@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { ImgFallbackDirective } from '../../../directives/img-fallback.directive';
@@ -9,14 +9,25 @@ import { ImgFallbackDirective } from '../../../directives/img-fallback.directive
   selector: 'app-nav',
   imports:[CommonModule, FormsModule, RouterLink, ImgFallbackDirective],
   templateUrl: './nav.html',
-  
 })
-export class Nav {
+export class Nav implements OnInit, OnDestroy {
   mobileMenuOpen = false;
   scrolled = false;
-  activeSection: string = '';
+  activeSection: string = 'home';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    this.router.events.subscribe(() => {
+      setTimeout(() => this.updateActiveSection(), 0);
+    });
+  }
+
+  ngOnInit(): void {
+    this.updateActiveSection();
+  }
+
+  ngOnDestroy(): void {
+    this.removeBodyScrollLock();
+  }
 
   get isPortfolioRoute(): boolean {
     return this.router.url.startsWith('/portfolio');
@@ -28,34 +39,38 @@ export class Nav {
     this.updateActiveSection();
   }
 
+  @HostListener('window:keydown', ['$event'])
+  onKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Escape' && this.mobileMenuOpen) {
+      this.closeMobileMenu();
+    }
+  }
+
   private updateActiveSection() {
     const sections = [
-      { id: '', label: 'home' },
+      { id: 'home', label: 'home' },
       { id: 'about-us', label: 'about-us' },
       { id: 'products', label: 'products' },
       { id: 'services', label: 'services' },
       { id: 'why-us', label: 'why-us' },
+      { id: 'portfolio', label: 'portfolio' },
       { id: 'contact', label: 'contact' },
     ];
 
-    const scrollY = window.scrollY + 120; // offset for fixed nav height
+    const scrollY = window.scrollY + 120;
 
-    // Check from bottom to top to get the last (deepest) visible section
     let found = '';
-    for (const section of sections) {
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const section = sections[i];
       const el = document.getElementById(section.id);
       if (el) {
         const offsetTop = el.offsetTop;
         const offsetBottom = offsetTop + el.offsetHeight;
         if (scrollY >= offsetTop && scrollY < offsetBottom) {
           found = section.id;
+          break;
         }
       }
-    }
-
-    // If scrolled to very top, highlight Home
-    if (!found && window.scrollY < 200) {
-      found = '';
     }
 
     this.activeSection = found;
@@ -63,15 +78,42 @@ export class Nav {
 
   toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
+    this.toggleBodyScrollLock();
+  }
+
+  private closeMobileMenu() {
+    this.mobileMenuOpen = false;
+    this.removeBodyScrollLock();
+  }
+
+  private toggleBodyScrollLock() {
+    if (this.mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
+
+  private removeBodyScrollLock() {
+    document.body.style.overflow = '';
+  }
+
+  isActive(id: string): boolean {
+    const mapped = id === 'head' ? 'home' : id;
+    return this.activeSection === mapped;
   }
 
   scrollToSection(sectionId: string) {
+    this.closeMobileMenu();
+
+    const targetId = sectionId === 'head' ? 'home' : sectionId;
+
     const scrollToElement = () => {
-      if (!sectionId) {
+      if (targetId === 'home') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         return;
       }
-      const el = document.getElementById(sectionId);
+      const el = document.getElementById(targetId);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }

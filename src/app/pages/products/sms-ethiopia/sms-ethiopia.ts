@@ -8,7 +8,7 @@ import { SmsEthiopiaMainSection } from './components/sms-ethiopia-main-section/s
 @Component({
   standalone: true,
   selector: 'app-sms-ethiopia',
-  imports: [CommonModule,FormsModule,Header,Footer,SmsEthiopiaMainSection],
+  imports: [CommonModule, FormsModule, Header, Footer, SmsEthiopiaMainSection],
   templateUrl: './sms-ethiopia.html',
   styleUrl: './sms-ethiopia.css',
 })

@@ -8,7 +8,7 @@ import { OneVasMainSection } from './components/one-vas-main-section/one-vas-mai
 @Component({
   standalone: true,
   selector: 'app-one-vas',
-  imports: [CommonModule,FormsModule,Header,Footer,OneVasMainSection],
+  imports: [CommonModule, FormsModule, Header, Footer, OneVasMainSection],
   templateUrl: './one-vas.html',
   styleUrl: './one-vas.css',
 })

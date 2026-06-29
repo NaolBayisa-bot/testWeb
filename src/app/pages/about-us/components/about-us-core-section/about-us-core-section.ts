@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 interface TimelinePoint {
@@ -17,7 +17,7 @@ interface TimelinePoint {
   templateUrl: './about-us-core-section.html',
   styleUrl: './about-us-core-section.css',
 })
-export class AboutUsCoreSection implements OnInit, OnDestroy {
+export class AboutUsCoreSection implements OnInit, OnDestroy, AfterViewInit {
   points: TimelinePoint[] = [
     {
       x: 100,
@@ -54,9 +54,16 @@ export class AboutUsCoreSection implements OnInit, OnDestroy {
   frequency = 1;
   speed = 0.000000001;
 
+  /** Staggered item visibility (scroll-triggered) */
+  itemVisible: boolean[] = [false, false, false, false];
+  sectionVisible = false;
+
   /** Animation state */
   private phase = 0;
   private rafId!: number;
+  private observer!: IntersectionObserver;
+
+  @ViewChild('journeySection') journeySectionRef!: ElementRef<HTMLElement>;
 
   constructor(private cd: ChangeDetectorRef) {}
 
@@ -64,8 +71,43 @@ export class AboutUsCoreSection implements OnInit, OnDestroy {
     this.animate();
   }
 
+  ngAfterViewInit(): void {
+    this.setupIntersectionObserver();
+  }
+
   ngOnDestroy(): void {
     cancelAnimationFrame(this.rafId);
+    this.observer?.disconnect();
+  }
+
+  /* ── Intersection Observer for scroll trigger ── */
+  private setupIntersectionObserver(): void {
+    const el = this.journeySectionRef?.nativeElement;
+    if (!el) return;
+
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          // Fade the section in
+          this.sectionVisible = true;
+          el.classList.add('section-visible');
+
+          // Stagger the timeline items
+          this.points.forEach((_, i) => {
+            setTimeout(() => {
+              this.itemVisible[i] = true;
+              this.cd.detectChanges();
+            }, i * 200);
+          });
+
+          this.observer.disconnect();
+        }
+      },
+      { threshold: 0.2, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    this.observer.observe(el);
   }
 
   private animate() {
