@@ -1,0 +1,26 @@
+<div class="skeleton-img-wrapper" [class.shape-circle]="shape === 'circle'">
+  <!-- Skeleton overlay -->
+  <div class="skeleton-skeleton" aria-hidden="true">
+    <span class="skeleton-shimmer"></span>
+  </div>
+
+  <!-- Actual image (hidden until loaded) -->
+  <img
+    *ngIf="src"
+    [src]="src"
+    [alt]="alt"
+    [class.skeleton-loaded]="loaded()"
+    [class.skeleton-errored]="errored()"
+    [class.skeleton-hidden]="!(loaded() || errored())"
+    [style.object-fit]="objectFit"
+    (load)="onLoaded()"
+    (error)="onError()"
+    loading="lazy"
+  />
+
+  <!-- Error state fallback -->
+  <div *ngIf="errored() && !loaded()" class="skeleton-error">
+    <span class="skeleton-error-icon">&#x1F4F7;</span>
+    <span class="skeleton-error-text">Image unavailable</span>
+  </div>
+</div>

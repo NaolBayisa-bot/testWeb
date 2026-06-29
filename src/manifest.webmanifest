@@ -1,0 +1,17 @@
+{
+  "name": "ALET Technology PLC",
+  "short_name": "ALET",
+  "description": "Smart Telecom & IT Solutions provider in Ethiopia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#22c55e",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

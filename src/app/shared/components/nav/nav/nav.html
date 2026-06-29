@@ -16,7 +16,7 @@
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex space-x-8 text-sm font-medium text-white">
-        <a (click)="scrollToSection('head')" 
+        <a (click)="scrollToSection('home')" 
            [class.text-green-500]="isActive('head')" 
            class="hover:text-green-500 transition cursor-pointer">Home</a>
         <a (click)="scrollToSection('about-us')" 
@@ -28,10 +28,9 @@
         <a (click)="scrollToSection('services')" 
            [class.text-green-500]="isActive('services')" 
            class="hover:text-green-500 transition cursor-pointer">Services</a>
-                      <a (click)="scrollToSection('why-us'); toggleMobileMenu()" 
+        <a (click)="scrollToSection('why-us'); toggleMobileMenu()" 
            [class.text-green-500]="isActive('why-us')" 
            class="hover:text-green-500 transition cursor-pointer">Why us</a>
-
         <a (click)="scrollToSection('portfolio')" 
            [class.text-green-500]="isActive('portfolio')" 
            class="hover:text-green-500 transition">Portfolio</a>

@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "node node_modules/@angular/cli/bin/ng.js build",
+    "postbuild": "node node_modules/@angular/service-worker/ngsw-config.js dist/alet-website/browser ngsw-config.json / && cp node_modules/@angular/service-worker/ngsw-worker.js dist/alet-website/browser/ngsw-worker.js && cp node_modules/@angular/service-worker/safety-worker.js dist/alet-website/browser/safety-worker.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -29,6 +30,7 @@
     "@angular/forms": "18.2.14",
     "@angular/platform-browser": "18.2.14",
     "@angular/router": "18.2.14",
+    "@angular/service-worker": "18.2.14",
     "@emailjs/browser": "^4.4.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

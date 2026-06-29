@@ -2,12 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { ImgFallbackDirective } from '../../../../shared/directives/img-fallback.directive';
 
 @Component({
-  selector: 'app-product-section',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive, ImgFallbackDirective],
+  selector: 'app-product-section',
+  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive],
   templateUrl: './product-section.html',
   styleUrl: './product-section.css',
 })
