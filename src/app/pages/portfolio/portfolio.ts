@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { Header } from '../../shared/components/header/header';
 import { Footer } from '../../shared/components/footer/footer';
 import { GrowthSection } from '../home-page/components/growth-section/growth-section';
@@ -12,7 +11,7 @@ import { GetIntouchSection } from "../home-page/components/get-intouch-section/g
 @Component({
   standalone: true,
   selector: 'app-portfolio',
-  imports: [CommonModule, FormsModule, PortfolioPageHeader, Footer, PortfolioPageGetInTouch, PortfolioPageMainSection],
+  imports: [CommonModule, PortfolioPageHeader, Footer, PortfolioPageGetInTouch, PortfolioPageMainSection],
   templateUrl: './portfolio.html',
   styleUrl: './portfolio.css',
 })

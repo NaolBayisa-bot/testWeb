@@ -1,12 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { Nav } from '../nav/nav/nav';
 
 @Component({
   standalone: true,
   selector: 'app-header',
-  imports: [CommonModule,FormsModule,Nav],
+  imports: [CommonModule, Nav],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })

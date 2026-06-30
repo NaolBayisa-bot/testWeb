@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HeaderSection } from './components/header-section/header-section';
 import { AboutUsSection } from './components/about-us-section/about-us-section';
 
@@ -18,7 +17,6 @@ import { ServiceSection } from './components/service-section/service-section';
   standalone: true, // make sure the component is standalone
   imports: [
     CommonModule,
-    FormsModule,
     HeaderSection,
     AboutUsSection,
     ProductSection,

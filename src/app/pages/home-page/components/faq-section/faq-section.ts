@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   standalone: true,
   selector: 'app-faq-section',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule],
   templateUrl: './faq-section.html',
   styleUrl: './faq-section.css',
 })

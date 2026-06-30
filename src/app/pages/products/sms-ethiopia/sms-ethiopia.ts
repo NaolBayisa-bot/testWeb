@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { Header } from '../../../shared/components/header/header';
 import { Footer } from '../../../shared/components/footer/footer';
 import { SmsEthiopiaMainSection } from './components/sms-ethiopia-main-section/sms-ethiopia-main-section';
@@ -8,7 +7,7 @@ import { SmsEthiopiaMainSection } from './components/sms-ethiopia-main-section/s
 @Component({
   standalone: true,
   selector: 'app-sms-ethiopia',
-  imports: [CommonModule, FormsModule, Header, Footer, SmsEthiopiaMainSection],
+  imports: [CommonModule, Header, Footer, SmsEthiopiaMainSection],
   templateUrl: './sms-ethiopia.html',
   styleUrl: './sms-ethiopia.css',
 })
