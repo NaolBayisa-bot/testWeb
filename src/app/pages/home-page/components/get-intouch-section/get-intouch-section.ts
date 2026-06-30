@@ -4,25 +4,6 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
 import emailjs from '@emailjs/browser';
 import { environment } from '../../../../../environments/environment';
 
-// ── Rate‑limit config (all client‑side; defense‑in‑depth) ──
-const RATE_LIMIT = {
-  /** Minimum seconds since page load before allowing a submission */
-  MIN_LOAD_SECONDS: 4,
-  /** Cooldown seconds between consecutive submissions */
-  COOLDOWN_SECONDS: 30,
-  /** Max submissions allowed within the sliding window */
-  MAX_SUBMISSIONS: 3,
-  /** Sliding‑window duration in seconds */
-  WINDOW_SECONDS: 3600, // 1 hour
-};
-
-const STORAGE_KEY = 'alet_contact_rate_limit';
-
-interface RateLimitRecord {
-  timestamps: number[];
-  windowStart: string;
-}
-
 @Component({
   standalone: true,
   selector: 'app-get-intouch-section',
@@ -33,12 +14,7 @@ interface RateLimitRecord {
 export class GetIntouchSection {
   isSending = false;
   submitted = false;
-  rateLimited = false;
-  rateLimitMessage = '';
   contactForm: FormGroup;
-
-  /** When the component was created (used for MIN_LOAD_SECONDS check) */
-  private readonly pageLoadTime = Date.now();
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
@@ -46,8 +22,6 @@ export class GetIntouchSection {
       phone: ['', [Validators.required, Validators.pattern(/^[+0-9\s\-()]{7,20}$/)]],
       email: ['', [Validators.required, Validators.email, Validators.maxLength(254)]],
       message: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(2000)]],
-      // ── Honeypot — hidden from real users, bots tend to fill it ──
-      website: [''],
     });
   }
 
@@ -55,7 +29,6 @@ export class GetIntouchSection {
   get phone()   { return this.contactForm.get('phone'); }
   get email()   { return this.contactForm.get('email'); }
   get message() { return this.contactForm.get('message'); }
-  get website() { return this.contactForm.get('website'); }
 
   sendEmail(event: Event) {
     event.preventDefault();
