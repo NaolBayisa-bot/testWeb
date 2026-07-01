@@ -18,10 +18,10 @@ spec:
     spec:
       containers:
         - name: alet-website
-          image: 172.17.91.104:5000/alet-website:latest
+          image: registry.aletcloud.com/cloud/hosting/testweb:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 80
+            - containerPort: 8080
       restartPolicy: Always
 ---
 
