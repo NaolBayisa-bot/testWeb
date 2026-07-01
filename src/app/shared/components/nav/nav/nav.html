@@ -16,25 +16,27 @@
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex space-x-8 text-sm font-medium text-white">
-        <a (click)="scrollToSection('home')" 
-           [class.text-green-500]="isActive('head')" 
-           class="hover:text-green-500 transition cursor-pointer">Home</a>
-        <a (click)="scrollToSection('about-us')" 
-           [class.text-green-500]="isActive('about-us')" 
-           class="hover:text-green-500 transition cursor-pointer">About</a>
-        <a (click)="scrollToSection('products')" 
-           [class.text-green-500]="isActive('products')" 
-           class="hover:text-green-500 transition cursor-pointer">Products</a>
-        <a (click)="scrollToSection('services')" 
-           [class.text-green-500]="isActive('services')" 
-           class="hover:text-green-500 transition cursor-pointer">Services</a>
-        <a (click)="scrollToSection('why-us'); toggleMobileMenu()" 
-           [class.text-green-500]="isActive('why-us')" 
-           class="hover:text-green-500 transition cursor-pointer">Why us</a>
-        <a (click)="scrollToSection('portfolio')" 
-           [class.text-green-500]="isActive('portfolio')" 
-           class="hover:text-green-500 transition">Portfolio</a>
-      </nav>
+  <a (click)="scrollToSection('home')" 
+     [class.text-green-500]="isActive('head')" 
+     class="hover:text-green-500 transition cursor-pointer">Home</a>
+  <a (click)="scrollToSection('about-us')" 
+     [class.text-green-500]="isActive('about-us')" 
+     class="hover:text-green-500 transition cursor-pointer">About</a>
+  <a (click)="scrollToSection('products')" 
+     [class.text-green-500]="isActive('products')" 
+     class="hover:text-green-500 transition cursor-pointer">Products</a>
+  <a (click)="scrollToSection('services')" 
+     [class.text-green-500]="isActive('services')" 
+     class="hover:text-green-500 transition cursor-pointer">Services</a>
+  <a (click)="scrollToSection('why-us'); toggleMobileMenu()" 
+     [class.text-green-500]="isActive('why-us')" 
+     class="hover:text-green-500 transition cursor-pointer">Why us</a>
+  
+  <a routerLink="/portfolio"
+     [class.text-green-500]="isActive('portfolio')" 
+     [class.[text-shadow:0_0_12px_rgba(34,197,94,0.8)]]="isActive('portfolio')"
+     class="hover:text-green-500 transition-all duration-300">Portfolio</a>
+</nav>
 
       <!-- Get In Touch Button (Desktop) -->
       <button
@@ -78,7 +80,7 @@
         <a (click)="scrollToSection('why-us'); toggleMobileMenu()" 
            [class.text-green-500]="isActive('why-us')" 
            class="hover:text-green-500 transition cursor-pointer">Why us</a>
-        <a (click)="scrollToSection('portfolio'); toggleMobileMenu()" 
+        <a routerLink="./portfolio" (click)="toggleMobileMenu()"
            [class.text-green-500]="isActive('portfolio')" 
            class="hover:text-green-500 transition cursor-pointer">Portfolio</a>
         <button

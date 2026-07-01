@@ -9,21 +9,28 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './nav.html',
 })
 export class Nav {
-  isActive(sectionId: string): boolean {
-    if (sectionId === 'head') {
-      return this.activeSection === '';
-    }
-    return this.activeSection === sectionId;
-  }
-
   mobileMenuOpen = false;
   scrolled = false;
   activeSection: string = '';
 
   constructor(private router: Router) {}
 
-  get isPortfolioRoute(): boolean {
-    return this.router.url.startsWith('/portfolio');
+  // Modified to handle both route states and scroll states
+  isActive(sectionId: string): boolean {
+    if (sectionId === 'portfolio') {
+      // Glow if we are on the /portfolio route OR if scrolled to the portfolio section
+      return this.router.url.startsWith('/portfolio') || this.activeSection === 'portfolio';
+    }
+    
+    // If we are on the portfolio page, don't light up homepage sections
+    if (this.router.url.startsWith('/portfolio')) {
+      return false;
+    }
+
+    if (sectionId === 'head') {
+      return this.activeSection === '';
+    }
+    return this.activeSection === sectionId;
   }
 
   @HostListener('window:scroll', [])
@@ -33,18 +40,19 @@ export class Nav {
   }
 
   private updateActiveSection() {
+    // 1. ADDED 'portfolio' section to the array tracking list
     const sections = [
       { id: '', label: 'home' },
       { id: 'about-us', label: 'about-us' },
       { id: 'products', label: 'products' },
       { id: 'services', label: 'services' },
       { id: 'why-us', label: 'why-us' },
+      { id: 'portfolio', label: 'portfolio' }, // <-- Matches your homepage portfolio element ID
       { id: 'contact', label: 'contact' },
     ];
 
-    const scrollY = window.scrollY + 120; // offset for fixed nav height
+    const scrollY = window.scrollY + 120;
 
-    // Check from bottom to top to get the last (deepest) visible section
     let found = '';
     for (const section of sections) {
       const el = document.getElementById(section.id);
@@ -57,7 +65,6 @@ export class Nav {
       }
     }
 
-    // If scrolled to very top, highlight Home
     if (!found && window.scrollY < 200) {
       found = '';
     }

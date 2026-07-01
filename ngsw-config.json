@@ -9,6 +9,7 @@
         "files": [
           "/favicon.ico",
           "/manifest.webmanifest",
+          "/robots.txt",
           "/*.css",
           "/*.js"
         ]
@@ -39,5 +40,9 @@
         }
       }
     }
+  ],
+  "navigationUrls": [
+    "/*",
+    "!/**/*.*"
   ]
 }

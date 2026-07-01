@@ -60,6 +60,7 @@
             type="text"
             formControlName="name"
             placeholder="Your Name"
+            autocomplete="name"
             [class.border-red-500]="name?.invalid && (name?.touched || submitted)"
             class="w-full rounded-xl border border-gray-300 bg-white px-5 py-3 sm:px-6 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-gray-500 shadow-sm transition"
           />
@@ -80,6 +81,7 @@
             type="tel"
             formControlName="phone"
             placeholder="+251 97 645 5555"
+            autocomplete="tel"
             [class.border-red-500]="phone?.invalid && (phone?.touched || submitted)"
             class="w-full rounded-xl border border-gray-300 bg-white px-5 py-3 sm:px-6 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-gray-500 shadow-sm transition"
           />
@@ -97,6 +99,7 @@
             type="email"
             formControlName="email"
             placeholder="Your Email"
+            autocomplete="email"
             [class.border-red-500]="email?.invalid && (email?.touched || submitted)"
             class="w-full rounded-xl border border-gray-300 bg-white px-5 py-3 sm:px-6 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-gray-500 shadow-sm transition"
           />

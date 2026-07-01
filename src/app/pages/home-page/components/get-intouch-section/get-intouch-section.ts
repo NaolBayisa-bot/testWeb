@@ -48,7 +48,30 @@ export class GetIntouchSection {
       environment.emailjsServiceId,
       environment.emailjsTemplateId,
       form,
-      environment.emailjsPublicKey
+      {
+        publicKey: environment.emailjsPublicKey,
+        blockHeadless: true,
+        limitRate: {
+          throttle: 30_000,
+          id: 'contact-form-submission',
+        },
+        blockList: {
+          list: [
+            'spam',
+            'viagra',
+            'cialis',
+            'lottery',
+            'winner',
+            'click here',
+            'unsubscribe',
+            'casino',
+            'crypto',
+            'bitcoin',
+            'investment',
+            'make money',
+          ],
+        },
+      }
     ).then(
       () => {
         this.isSending = false;
@@ -60,8 +83,22 @@ export class GetIntouchSection {
       (error) => {
         this.isSending = false;
         this.submitted = false;
+
+        const status = error?.status;
+        let message = 'Failed to send message. Please try again.';
+
+        if (status === 429) {
+          message = 'Too many messages. Please wait a minute and try again.';
+        } else if (status === 403) {
+          message =
+            'Message blocked due to suspicious content. Please remove spam-like text and try again.';
+        } else if (status === 400) {
+          message =
+            'Invalid submission. Please check your details and try again.';
+        }
+
         console.error('Email sending error:', error);
-        this.showToast('Failed to send message. Please try again.', 'error');
+        this.showToast(message, 'error');
       }
     );
   }
