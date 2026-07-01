@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
-import { environment } from '../../../../../environments/environment';
+import { environment } from '../../../../../environments/environment.example';
 
 @Component({
   standalone: true,

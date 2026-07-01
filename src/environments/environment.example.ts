@@ -8,7 +8,7 @@
 
 export const environment = {
   production: false,
-  emailjsServiceId: 'YOUR_SERVICE_ID',
-  emailjsTemplateId: 'YOUR_TEMPLATE_ID',
-  emailjsPublicKey: 'YOUR_PUBLIC_KEY',
+  emailjsServiceId: 'service_ldgd843',
+  emailjsTemplateId: 'template_f3qq2gc',
+  emailjsPublicKey: '4nco2yhrkQwXQ0vg0',
 };
