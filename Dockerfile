@@ -6,7 +6,7 @@ COPY package*.json ./
 RUN npm ci
 
 COPY . .
-RUN npm run build --build-optimizer --vendor-chunk=false --output-path=dist/ALET_WEBSITE/browser
+RUN npm run build
 
 FROM nginx:1.26-alpine
 RUN rm /etc/nginx/conf.d/default.conf && \
@@ -16,7 +16,7 @@ RUN rm /etc/nginx/conf.d/default.conf && \
     touch /var/run/nginx.pid && \
     chown nginx:nginx /var/run/nginx.pid
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build --chown=nginx:nginx /app/dist/ALET_WEBSITE/browser /usr/share/nginx/html
+COPY --from=build --chown=nginx:nginx /app/dist/alet-website/browser /usr/share/nginx/html
 
 USER nginx
 EXPOSE 8080
