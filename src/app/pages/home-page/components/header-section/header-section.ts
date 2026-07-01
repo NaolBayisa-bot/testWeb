@@ -5,7 +5,7 @@ import { Nav } from '../../../../shared/components/nav/nav/nav';
 @Component({
   standalone: true,
   selector: 'app-header-section',
-  imports: [Nav],
+  imports: [Nav, ],
   templateUrl: './header-section.html',
   styleUrl: './header-section.css',
 })
