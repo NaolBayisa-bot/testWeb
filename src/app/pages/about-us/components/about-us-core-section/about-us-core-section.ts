@@ -30,8 +30,8 @@ export class AboutUsCoreSection implements OnInit, OnDestroy, AfterViewInit {
       x: 350,
       y: 150,
       year: '2023',
-      title: 'Introduced TeleBus',
-      desc: 'Later the same year, TeleBus was introduced as a comprehensive communication platform for enterprises. By combining SMS and automation tools into a single solution, TeleBus empowers businesses to streamline operations and enhance customer engagement.',
+      title: 'Introduced Aletcloud',
+      desc: 'Later the same year, AletCloud Technologies was introduced as an enterprise cloud solutions provider. It delivers scalable web hosting, secure application deployment, and managed digital infrastructure, optimizing business operations by seamlessly integrating essential backend database, repository, and network services.',
     },
     {
       x: 580,

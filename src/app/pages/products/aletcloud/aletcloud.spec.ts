@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TeleBusMainSection } from './tele-bus-main-section';
+import { Aletcloud } from './aletcloud';
 
-describe('TeleBusMainSection', () => {
-  let component: TeleBusMainSection;
-  let fixture: ComponentFixture<TeleBusMainSection>;
+describe('Aletcloud', () => {
+  let component: Aletcloud;
+  let fixture: ComponentFixture<Aletcloud>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TeleBusMainSection]
+      imports: [Aletcloud]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TeleBusMainSection);
+    fixture = TestBed.createComponent(Aletcloud);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
